@@ -11,17 +11,17 @@ $email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
 
 // DATA VALIDATION
 $errors = [];
-// Check if the first name is not empty
+// Check if the first name is empty
 if (empty(trim($firstName))) {
     $errors['firstName'] = "firstName";
 }
 
-// Check if the last name is not empty
+// Check if the last name is empty
 if (empty(trim($lastName))) {
     $errors['lastName'] = "lastName";
 }
 
-// Check if the email is valid using a regex
+// Check if the email is valid using the same RegEx as the frontend
 $emailRegex = '/^[a-zA-Z0-9.!#$%&’*+\/=?^_`{|}~\-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/';
 if (!preg_match($emailRegex, trim($email))) {
     $errors['email'] = "email";

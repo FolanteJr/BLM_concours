@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Hint messages for form validation
     const hints = [
-        { firstName: "Votre prénom est requis" },
-        { lastName: "Votre nom est requis" },
-        { email: "Format d'adresse email invalide" },
+        { firstName: "Votre prénom est requis." },
+        { lastName: "Votre nom est requis." },
+        { email: "Format d'adresse email invalide." },
     ];
 
     const form = document.getElementById("simple-form");
     const inputs = form.querySelectorAll("input");
-    const isValid = []; // To store the input validity
+    const isValid = []; // To store the inputs validity
     let isFormValid = false; // For the form validity
 
     // focus the first input on loading
