@@ -1,0 +1,360 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+/* Reset default browser styles */
+/* Remove default margins and padding */
+html, body, div, h1, h2, h3, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set default font styles to be consistent */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Remove underlines from links */
+a {
+  text-decoration: none;
+}
+
+/* Reset list styles */
+ul, ol {
+  list-style: none;
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove any border on images */
+img {
+  border: 0;
+}
+
+/* Reset form elements to be consistent */
+input, textarea, select, button {
+  margin: 0;
+  padding: 0;
+  /* border: none; */
+  font: inherit;
+}
+
+/* Set box-sizing to border-box for all elements */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(-0.25rem);
+  }
+  40%, 80% {
+    transform: translateX(0.25rem);
+  }
+}
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    right: -1rem;
+  }
+  100% {
+    opacity: 1;
+    right: 0.5rem;
+  }
+}
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 60rem;
+  gap: 1.75rem;
+  padding: 1.5rem 1.5rem 2rem 1.5rem;
+}
+form#simple-form {
+  background-color: white;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.1);
+}
+form .input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+form .input-group label {
+  color: #6c6c6c;
+  margin-bottom: 1px;
+}
+form .input-group .hint {
+  position: absolute;
+  top: 70px;
+  font-size: 14px;
+  color: #A32949;
+}
+form .input-group .indicator {
+  position: relative;
+  z-index: 4;
+}
+form .input-group .error {
+  border-color: #D34F73;
+}
+form input[type=text],
+form input[type=email] {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #6c6c6c;
+  outline: 3px solid transparent;
+  transition: background-color 0.3 border-color 3s;
+}
+form input[type=text]:focus,
+form input[type=email]:focus {
+  border-color: #425b9c;
+  outline-offset: 0px;
+  outline: 3px solid rgba(66, 91, 156, 0.4823529412);
+}
+form input[type=text].valid,
+form input[type=email].valid {
+  background-color: rgba(46, 196, 134, 0.0078431373);
+  border-color: #2ec486;
+}
+form input[type=text].valid ~ .indicator::after,
+form input[type=email].valid ~ .indicator::after {
+  content: "";
+  height: 1.5rem;
+  width: 1.5rem;
+  position: absolute;
+  top: -34px;
+  right: 0.5rem;
+  background: url(../../icons/check.png);
+  background-size: contain;
+  animation: slide-in 0.3s ease-out;
+}
+form input[type=text].invalid,
+form input[type=email].invalid {
+  background-color: rgba(211, 79, 115, 0.031372549);
+  border-color: #D34F73;
+  animation: shake 0.3s ease-in-out;
+}
+form button[type=submit] {
+  margin-top: 1rem;
+}
+
+button.btn, input[type=submit].btn {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.6rem 2rem;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  cursor: pointer;
+}
+button.btn.disabled, input[type=submit].btn.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+button.btn.btn-primary, input[type=submit].btn.btn-primary {
+  background-color: #425b9c;
+  color: white;
+  border-color: #425b9c;
+}
+button.btn.btn-primary:hover, input[type=submit].btn.btn-primary:hover {
+  background-color: #5873b7;
+  border-color: #5873b7;
+}
+button.btn.btn-primary:focus, input[type=submit].btn.btn-primary:focus {
+  outline-offset: 1px;
+  outline: 3px solid rgba(66, 91, 156, 0.4823529412);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: [full-width-start] minmax(1rem, 1fr) [content-start] min(100% - 2rem, 40rem) [content-end] minmax(1rem, 1fr) [full-width-end];
+}
+
+.content-grid > * {
+  grid-column: content;
+}
+
+.content-grid > .full-width {
+  grid-column: full-width;
+}
+
+.mg-top-8 {
+  margin-top: 8rem;
+}
+
+body {
+  background-color: #eeeae4;
+}
+
+* {
+  font-family: Inter, Arial, Sans-Serif;
+  font-weight: 400;
+  line-height: 1.5;
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 700;
+  color: #1b1b1b;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 2.827rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.414rem;
+}
+
+#toast-container {
+  position: absolute;
+  gap: 0.5rem;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.toast {
+  margin: auto;
+  position: relative;
+  display: flex;
+  align-self: center;
+  width: fit-content;
+  align-items: center;
+  top: 2rem;
+  padding: 0.75rem 1.25rem 0.75rem 1rem;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid transparent;
+  z-index: 100;
+}
+.toast.toast-success {
+  border-color: #2ec486;
+  color: #176347;
+  -webkit-box-shadow: 0px 2px 12px 0px rgba(46, 196, 134, 0.25);
+  -moz-box-shadow: 0px 2px 12px 0px rgba(46, 196, 134, 0.25);
+  box-shadow: 0px 2px 12px 0px rgba(46, 196, 134, 0.25);
+  /* &::before {
+      background: url(../../icons/check-circle.png);
+      background-size: contain;
+  }
+
+  border-color: $success;
+  color: $success-text;
+  -webkit-box-shadow: 0px 2px 12px 0px rgba($success, .25);
+  -moz-box-shadow: 0px 2px 12px 0px rgba($success, .25);
+  box-shadow: 0px 2px 12px 0px rgba($success, .25); */
+}
+.toast.toast-success::before {
+  width: 1.5rem;
+  height: 1.5rem;
+  content: "";
+  display: flex;
+  flex-shrink: 0;
+  margin-right: 1rem;
+  background: url("../../icons/check-circle.png");
+  background-size: contain;
+}
+.toast.toast-error {
+  border-color: #D34F73;
+  color: #A32949;
+  -webkit-box-shadow: 0px 2px 12px 0px rgba(211, 79, 115, 0.25);
+  -moz-box-shadow: 0px 2px 12px 0px rgba(211, 79, 115, 0.25);
+  box-shadow: 0px 2px 12px 0px rgba(211, 79, 115, 0.25);
+  /* &::before {
+      background: url(../../icons/error.png);
+      background-size: contain;
+  }
+
+  border-color: $danger;
+  color: $danger-text;
+  -webkit-box-shadow: 0px 2px 12px 0px rgba($danger, .25);
+  -moz-box-shadow: 0px 2px 12px 0px rgba($danger, .25);
+  box-shadow: 0px 2px 12px 0px rgba($danger, .25); */
+}
+.toast.toast-error::before {
+  width: 1.5rem;
+  height: 1.5rem;
+  content: "";
+  display: flex;
+  flex-shrink: 0;
+  margin-right: 1rem;
+  background: url("../../icons/error.png");
+  background-size: contain;
+}
+.toast.toast-warning {
+  border-color: #DD9F18;
+  color: #9D6C01;
+  -webkit-box-shadow: 0px 2px 12px 0px rgba(221, 159, 24, 0.25);
+  -moz-box-shadow: 0px 2px 12px 0px rgba(221, 159, 24, 0.25);
+  box-shadow: 0px 2px 12px 0px rgba(221, 159, 24, 0.25);
+  /* &::before {
+      background: url(../../icons/warning.png);
+      background-size: contain;
+  }
+
+  border-color: $warning;
+  color: $warning-text;
+  -webkit-box-shadow: 0px 2px 12px 0px rgba($warning, .25);
+  -moz-box-shadow: 0px 2px 12px 0px rgba($warning, .25);
+  box-shadow: 0px 2px 12px 0px rgba($warning, .25); */
+}
+.toast.toast-warning::before {
+  width: 1.5rem;
+  height: 1.5rem;
+  content: "";
+  display: flex;
+  flex-shrink: 0;
+  margin-right: 1rem;
+  background: url("../../icons/warning.png");
+  background-size: contain;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: -2rem;
+  }
+}
+.toast.fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.toast.fadeOut {
+  animation: fadeOut 0.5s ease-in-out;
+}
+
+/*# sourceMappingURL=index.css.map */

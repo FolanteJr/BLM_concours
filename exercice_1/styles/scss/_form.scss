@@ -1,0 +1,119 @@
+@import 'colors';
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20%,
+    60% {
+        transform: translateX(-.25rem);
+    }
+
+    40%,
+    80% {
+        transform: translateX(.25rem);
+    }
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        right: -1rem;
+    }
+
+    100% {
+        opacity: 1;
+        right: 0.5rem;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 60rem;
+    gap: 1.75rem;
+    padding: 1.5rem 1.5rem 2rem 1.5rem;
+
+    &#simple-form {
+        background-color: white;
+        border-radius: 8px;
+        -webkit-box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 8px 30px 0px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            color: $gray;
+            margin-bottom: 1px;
+        }
+
+        .hint {
+            position: absolute;
+            top: 70px;
+            font-size: 14px;
+            color: $danger-text;
+        }
+
+        .indicator {
+            position: relative;
+            z-index: 4;
+        }
+
+        .error {
+            border-color: $danger;
+        }
+    }
+
+
+    input[type=text],
+    input[type=email] {
+        padding: .5rem;
+        border-radius: 4px;
+        border: 1px solid $gray;
+        outline: 3px solid transparent;
+        transition: background-color 0.3 border-color 3s;
+
+        &:focus {
+            border-color: $primary;
+            outline-offset: 0px;
+            outline: 3px solid $primary-outline-focus;
+        }
+
+        &.valid {
+            background-color: $success-light;
+            border-color: $success;
+            
+            // check indicator when input is valid
+            &~.indicator::after {
+                content: '';
+                height: 1.5rem;
+                width: 1.5rem;
+                position: absolute;
+                top: -34px;
+                right: 0.5rem;
+                background: url(../../icons/check.png);
+                background-size: contain;
+                animation: slide-in 0.3s ease-out;
+            }
+        }
+
+        &.invalid {
+            background-color: $danger-light;
+            border-color: $danger;
+            animation: shake 0.3s ease-in-out;
+        }
+    }
+
+
+    button[type=submit] {
+        margin-top: 1rem;
+    }
+}

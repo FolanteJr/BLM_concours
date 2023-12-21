@@ -1,0 +1,25 @@
+.content-grid {
+    display: grid;
+    grid-template-columns: 
+    [full-width-start] minmax(1rem, 1fr) 
+    [content-start] min(100% - 2rem, 40rem)
+    [content-end] minmax(1rem, 1fr) 
+    [full-width-end];
+}
+
+.content-grid > * {
+    grid-column: content;
+}
+
+.content-grid > .full-width {
+    grid-column: full-width;
+}
+
+
+.mg-top-8 {
+    margin-top: 8rem;
+}
+
+body {
+    background-color: $background-color;
+}

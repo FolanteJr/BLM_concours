@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simple formulaire pour enregistrer les données d'un·e utilisat·eur·rice dans une base de données.">
+
+    <link rel="stylesheet" href="./styles/css/index.css">
+
+    <script src="./js/toast.js"></script>
+    <script src="./js/formValidation.js"></script>
+
+    <title>Formulaire simple</title>
+</head>
+
+<body>
+    <div id="toast-container" class="content-grid"></div>
+    <section class="content-grid mg-top-8">
+        <h3>Formulaire simple</h3>
+        <form id="simple-form">
+            <div class="input-group">
+                <label for="firstName">Prénom</label>
+                <input type="text" name="firstName" placeholder="Votre prénom" aria-describedby="firstNameHint" >
+                <div class="indicator"></div>
+                <p class="hint" id="firstNameHint" style="display: none"></p>
+            </div>
+            <div class="input-group">
+                <label for="lastName">Nom</label>
+                <input type="text" name="lastName" placeholder="Votre nom" aria-describedby="lastNameHint" >
+                <div class="indicator"></div>
+                <p class="hint" id="lastNameHint" style="display: none"></p>
+            </div>
+            <div class="input-group">
+                <label for="email">Adresse e-mail</label>
+                <input type="email" name="email" placeholder="exemple@email.com" aria-describedby="emailHint" >
+                <div class="indicator"></div>
+                <p class="hint" id="emailHint" style="display: none"></p>
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+    </section>
+</body>
+
+</html>

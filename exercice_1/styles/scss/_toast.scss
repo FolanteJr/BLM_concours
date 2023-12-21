@@ -1,0 +1,114 @@
+@use './colors';
+
+@mixin toast-style($background-image, $border-color, $text-color, $box-shadow-color) {
+    &::before {
+        width: 1.5rem;
+        height: 1.5rem;
+        content: '';
+        display: flex;
+        flex-shrink: 0;
+        margin-right: 1rem;
+        background: url($background-image);
+        background-size: contain;
+    }
+
+    border-color: $border-color;
+    color: $text-color;
+    -webkit-box-shadow: 0px 2px 12px 0px rgba($box-shadow-color, .25);
+    -moz-box-shadow: 0px 2px 12px 0px rgba($box-shadow-color, .25);
+    box-shadow: 0px 2px 12px 0px rgba($box-shadow-color, .25);
+}
+
+#toast-container {
+    position: absolute;
+    gap: .5rem;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.toast {
+    margin: auto;
+    position: relative;
+    display: flex;
+    align-self: center;
+    width: fit-content;
+    align-items: center;
+    top: 2rem;
+    padding: .75rem 1.25rem .75rem 1rem;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid transparent;
+    z-index: 100;
+
+    &.toast-success {
+        @include toast-style('../../icons/check-circle.png', $success, $success-text, $success);
+        /* &::before {
+            background: url(../../icons/check-circle.png);
+            background-size: contain;
+        }
+        
+        border-color: $success;
+        color: $success-text;
+        -webkit-box-shadow: 0px 2px 12px 0px rgba($success, .25);
+        -moz-box-shadow: 0px 2px 12px 0px rgba($success, .25);
+        box-shadow: 0px 2px 12px 0px rgba($success, .25); */
+    }
+    
+    &.toast-error {
+        @include toast-style('../../icons/error.png', $danger, $danger-text, $danger);
+        /* &::before {
+            background: url(../../icons/error.png);
+            background-size: contain;
+        }
+        
+        border-color: $danger;
+        color: $danger-text;
+        -webkit-box-shadow: 0px 2px 12px 0px rgba($danger, .25);
+        -moz-box-shadow: 0px 2px 12px 0px rgba($danger, .25);
+        box-shadow: 0px 2px 12px 0px rgba($danger, .25); */
+    }
+    
+    &.toast-warning {
+        @include toast-style('../../icons/warning.png', $warning, $warning-text, $warning);
+        /* &::before {
+            background: url(../../icons/warning.png);
+            background-size: contain;
+        }
+
+        border-color: $warning;
+        color: $warning-text;
+        -webkit-box-shadow: 0px 2px 12px 0px rgba($warning, .25);
+        -moz-box-shadow: 0px 2px 12px 0px rgba($warning, .25);
+        box-shadow: 0px 2px 12px 0px rgba($warning, .25); */
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        top: -2rem;
+    }
+}
+
+.toast.fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.toast.fadeOut {
+    animation: fadeOut 0.5s ease-in-out;
+}
